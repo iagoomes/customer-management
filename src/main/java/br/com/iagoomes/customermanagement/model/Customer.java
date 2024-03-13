@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDateTime;
 
@@ -28,7 +29,7 @@ public class Customer {
     private String countryOfBirth;
 
     @NotBlank
-    @Pattern(regexp="[0-9]{11}")
+    @CPF
     private String cpf;
 
     private String passport;
@@ -40,7 +41,7 @@ public class Customer {
     private String addressInCountryOfBirth;
 
     @NotBlank
-    @Pattern(regexp="[0-9]{10,12}")
+    @Pattern(regexp = "\\d{10,12}")
     private String phone;
 
     @NotBlank
