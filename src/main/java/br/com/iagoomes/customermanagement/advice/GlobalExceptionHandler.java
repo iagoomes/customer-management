@@ -2,7 +2,9 @@ package br.com.iagoomes.customermanagement.advice;
 
 import br.com.iagoomes.customermanagement.dto.DefaultError;
 import br.com.iagoomes.customermanagement.dto.FormError;
+import br.com.iagoomes.customermanagement.exceptions.CpfAlreadyExistsException;
 import br.com.iagoomes.customermanagement.exceptions.CustomerNotFound;
+import br.com.iagoomes.customermanagement.exceptions.PassportAlreadyExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -68,6 +70,17 @@ public class GlobalExceptionHandler {
         error.setTimeStamp(Instant.now());
         error.setStatus(status.value());
         error.setError("Resource error");
+        error.setMessage(exception.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(this.error);
+    }
+    @ExceptionHandler({CpfAlreadyExistsException.class, PassportAlreadyExistsException.class})
+    public ResponseEntity<DefaultError> validationException(Exception exception, HttpServletRequest request) {
+        log.error("Validation Error", exception);
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        error.setTimeStamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("Field error");
         error.setMessage(exception.getMessage());
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(this.error);

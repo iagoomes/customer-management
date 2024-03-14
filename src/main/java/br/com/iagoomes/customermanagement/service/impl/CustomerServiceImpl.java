@@ -7,6 +7,7 @@ import br.com.iagoomes.customermanagement.model.Customer;
 import br.com.iagoomes.customermanagement.repository.CustomerRepository;
 import br.com.iagoomes.customermanagement.service.CustomerService;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -18,18 +19,16 @@ import java.net.URI;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
-
-    public CustomerServiceImpl(CustomerRepository customerRepository, CustomerMapper customerMapper) {
-        this.customerRepository = customerRepository;
-        this.customerMapper = customerMapper;
-    }
+    private final CustomerValidationImpl customerValidation;
 
     @Override
     @Transactional
     public ResponseEntity<CustomerDTO> createCustomer(CustomerDTO dto, UriComponentsBuilder uriBuilder) {
+        customerValidation.isValid(dto);
         Customer customer = customerMapper.customerDTOToCustomer(dto);
         Customer customerSave = customerRepository.save(customer);
         CustomerDTO response = customerMapper.customerToCustomerDTO(customerSave);

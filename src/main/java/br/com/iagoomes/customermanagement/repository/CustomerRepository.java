@@ -21,4 +21,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Optional<Customer> findActiveByid(@Param("id") Long id);
 
     Page<Customer> findAllByActiveIsTrue(Pageable page);
+
+    boolean existsByCpf(String cpf);
+    boolean existsByPassport(String passport);
 }
