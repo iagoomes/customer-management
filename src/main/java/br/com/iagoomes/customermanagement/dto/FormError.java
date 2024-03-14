@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FormError extends DefaultError {
-    private final List<ValidacaoCampo> messages = new ArrayList<>();
+    private final List<ValidationField> messages = new ArrayList<>();
 
     public void addMenssagens(String campo, String mensagem) {
-        messages.add(new ValidacaoCampo(campo, mensagem));
+        messages.add(new ValidationField(campo, mensagem));
     }
 }

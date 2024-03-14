@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ValidacaoCampo {
+public class ValidationField {
     private String campo;
     private String mensagem;
 }
