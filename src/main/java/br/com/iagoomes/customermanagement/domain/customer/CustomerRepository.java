@@ -1,6 +1,5 @@
-package br.com.iagoomes.customermanagement.repository;
+package br.com.iagoomes.customermanagement.domain.customer;
 
-import br.com.iagoomes.customermanagement.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

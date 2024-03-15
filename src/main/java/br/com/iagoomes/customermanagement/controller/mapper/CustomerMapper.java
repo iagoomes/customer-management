@@ -1,7 +1,7 @@
-package br.com.iagoomes.customermanagement.mapper;
+package br.com.iagoomes.customermanagement.controller.mapper;
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
-import br.com.iagoomes.customermanagement.model.Customer;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerDTO;
+import br.com.iagoomes.customermanagement.domain.customer.Customer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

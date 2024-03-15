@@ -1,11 +1,12 @@
-package br.com.iagoomes.customermanagement.service.impl;
+package br.com.iagoomes.customermanagement.domain.customer.impl;
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
-import br.com.iagoomes.customermanagement.exceptions.CustomerNotFound;
-import br.com.iagoomes.customermanagement.mapper.CustomerMapper;
-import br.com.iagoomes.customermanagement.model.Customer;
-import br.com.iagoomes.customermanagement.repository.CustomerRepository;
-import br.com.iagoomes.customermanagement.service.CustomerService;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerDTO;
+import br.com.iagoomes.customermanagement.domain.customer.validation.impl.CustomerValidationImpl;
+import br.com.iagoomes.customermanagement.infra.exceptions.CustomerNotFound;
+import br.com.iagoomes.customermanagement.controller.mapper.CustomerMapper;
+import br.com.iagoomes.customermanagement.domain.customer.Customer;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerRepository;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

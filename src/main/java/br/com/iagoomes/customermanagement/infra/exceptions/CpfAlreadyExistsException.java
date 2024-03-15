@@ -1,4 +1,4 @@
-package br.com.iagoomes.customermanagement.exceptions;
+package br.com.iagoomes.customermanagement.infra.exceptions;
 
 public class CpfAlreadyExistsException extends RuntimeException {
     public CpfAlreadyExistsException(String cpf) {

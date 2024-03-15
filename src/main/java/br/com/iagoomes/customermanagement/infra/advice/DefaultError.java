@@ -1,4 +1,4 @@
-package br.com.iagoomes.customermanagement.dto;
+package br.com.iagoomes.customermanagement.infra.advice;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

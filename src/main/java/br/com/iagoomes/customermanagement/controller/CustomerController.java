@@ -1,10 +1,11 @@
 package br.com.iagoomes.customermanagement.controller;
 
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
-import br.com.iagoomes.customermanagement.service.impl.CustomerServiceImpl;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerDTO;
+import br.com.iagoomes.customermanagement.domain.customer.impl.CustomerServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +32,10 @@ public class CustomerController {
     }
 
     @GetMapping("/customers")
-    public ResponseEntity<Page<CustomerDTO>> findCustomers(Pageable page) {
-        return customerServiceImpl.findCustomers(page);
+    public ResponseEntity<Page<CustomerDTO>> findCustomers(@RequestParam(defaultValue = "0") int page,
+                                                           @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return customerServiceImpl.findCustomers(pageable);
     }
 
     @PutMapping("/customers/{id}")

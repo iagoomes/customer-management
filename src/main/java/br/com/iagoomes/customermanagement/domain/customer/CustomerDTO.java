@@ -1,16 +1,19 @@
-package br.com.iagoomes.customermanagement.dto;
+package br.com.iagoomes.customermanagement.domain.customer;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerDTO {
     @NotBlank
     private String fullName;
@@ -19,8 +22,10 @@ public class CustomerDTO {
     private String countryOfBirth;
 
     @NotBlank
+    @CPF
     private String cpf;
 
+    @NotBlank
     private String passport;
 
     @NotNull

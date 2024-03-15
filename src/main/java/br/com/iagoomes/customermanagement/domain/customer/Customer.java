@@ -1,6 +1,5 @@
-package br.com.iagoomes.customermanagement.model;
+package br.com.iagoomes.customermanagement.domain.customer;
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

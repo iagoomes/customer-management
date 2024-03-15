@@ -1,6 +1,5 @@
-package br.com.iagoomes.customermanagement.service;
+package br.com.iagoomes.customermanagement.domain.customer;
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;

@@ -1,10 +1,8 @@
-package br.com.iagoomes.customermanagement.advice;
+package br.com.iagoomes.customermanagement.infra.advice;
 
-import br.com.iagoomes.customermanagement.dto.DefaultError;
-import br.com.iagoomes.customermanagement.dto.FormError;
-import br.com.iagoomes.customermanagement.exceptions.CpfAlreadyExistsException;
-import br.com.iagoomes.customermanagement.exceptions.CustomerNotFound;
-import br.com.iagoomes.customermanagement.exceptions.PassportAlreadyExistsException;
+import br.com.iagoomes.customermanagement.infra.exceptions.CpfAlreadyExistsException;
+import br.com.iagoomes.customermanagement.infra.exceptions.CustomerNotFound;
+import br.com.iagoomes.customermanagement.infra.exceptions.PassportAlreadyExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;

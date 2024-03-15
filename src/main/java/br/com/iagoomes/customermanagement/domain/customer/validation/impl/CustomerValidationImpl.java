@@ -1,7 +1,7 @@
-package br.com.iagoomes.customermanagement.service.impl;
+package br.com.iagoomes.customermanagement.domain.customer.validation.impl;
 
-import br.com.iagoomes.customermanagement.dto.CustomerDTO;
-import br.com.iagoomes.customermanagement.service.Validation;
+import br.com.iagoomes.customermanagement.domain.customer.CustomerDTO;
+import br.com.iagoomes.customermanagement.domain.customer.validation.Validation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
