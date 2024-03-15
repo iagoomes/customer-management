@@ -1,4 +1,3 @@
-```markdown
 # Customer Management Service
 Swagger API Documentation: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
@@ -7,8 +6,6 @@ Swagger API Documentation: [http://localhost:8080/swagger-ui/index.html](http://
 ### POST /v1/customers
 
 Creates a new customer.
-
-**Endpoint:**
 
 ```bash
 curl -X POST --location "http://localhost:8080/v1/customers" \
