@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public ResponseEntity<CustomerDTO> findCustomer(Long id) {
         Customer customer = customerRepository.findActiveByid(id)
-                .orElseThrow(() -> new CustomerNotFound("Resource not found or deleted"));
+                .orElseThrow(CustomerNotFound::new);
         CustomerDTO dto = customerMapper.customerToCustomerDTO(customer);
         return ResponseEntity.ok(dto);
     }
@@ -61,6 +61,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public ResponseEntity<CustomerDTO> updateCustomer(Long id, CustomerDTO dto) {
         Customer customer = customerRepository.getReferenceById(id);
+        if (customer.getActive() == Boolean.FALSE) {
+            throw new CustomerNotFound();
+        }
         customer.updateInfos(dto);
         CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
         return ResponseEntity.ok(customerDTO);

@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
         error.setTimeStamp(Instant.now());
         error.setStatus(status.value());
         error.setError("Resource not found");
-        error.setMessage(exception.getMessage());
+        error.setMessage("id not found");
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(this.error);
     }
